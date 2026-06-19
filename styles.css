@@ -1,0 +1,86 @@
+/* Arrow animation */
+@keyframes arrow-float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+.arrow-bounce {
+    animation: arrow-float 1.8s ease-in-out infinite;
+}
+
+/* Back-to-top button — hidden by default */
+.back-to-top {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Skill / project badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.65rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.025em;
+    background-color: #1a1a1a;
+    border: 1px solid #404040;
+    color: #a3a3a3;
+    border-radius: 2px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    cursor: default;
+    user-select: none;
+}
+
+.badge:hover {
+    border-color: #ff6b00;
+    color: #ff6b00;
+}
+
+/* Mobile menu — slide down */
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.mobile-menu.open {
+    max-height: 220px;
+}
+
+/* Hamburger → cross transition */
+.menu-open .hamburger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menu-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-open .hamburger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Subtle custom scrollbar */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff6b00;
+}
