@@ -1,7 +1,7 @@
-/* Arrow animation */
+/* Arrow animation — maintains horizontal centering via translateX */
 @keyframes arrow-float {
     0%, 100% { transform: translateX(-50%) translateY(0); }
-    50%       { transform: translateX(-50%) translateY(6px); }
+    50%       { transform: translateX(-50%) translateY(7px); }
 }
 
 .arrow-bounce {
@@ -22,25 +22,62 @@
     transform: translateY(0);
 }
 
-/* Skill / project badges */
+/* Primary button */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.8125rem;
+    letter-spacing: 0.05em;
+    border: 1px solid #ff6b00;
+    color: #e5e5e5;
+    border-radius: 2px;
+    transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ff6b00;
+    color: #fff;
+    box-shadow: 0 0 24px rgba(255, 107, 0, 0.25);
+    transform: translateY(-1px);
+}
+
+/* Ghost button */
+.btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.8125rem;
+    letter-spacing: 0.05em;
+    color: #737373;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-ghost:hover {
+    color: #ff6b00;
+    transform: translateY(-1px);
+}
+
+/* Badges techniques */
 .badge {
     display: inline-flex;
     align-items: center;
-    padding: 0.2rem 0.65rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.025em;
-    background-color: #1a1a1a;
-    border: 1px solid #404040;
+    padding: 0.22rem 0.7rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    background-color: rgba(10, 10, 12, 0.8);
+    border: 1px solid rgba(64, 64, 64, 0.6);
     color: #a3a3a3;
-    border-radius: 2px;
-    transition: border-color 0.2s ease, color 0.2s ease;
+    border-radius: 3px;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
     cursor: default;
     user-select: none;
 }
 
 .badge:hover {
-    border-color: #ff6b00;
+    border-color: rgba(255, 107, 0, 0.5);
     color: #ff6b00;
+    background-color: rgba(255, 107, 0, 0.04);
 }
 
 /* Mobile menu — slide down */
@@ -67,17 +104,56 @@
     transform: translateY(-6px) rotate(-45deg);
 }
 
+/* === Carrousel — masquer la scrollbar native === */
+#carousel-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* === Modal overlay === */
+.modal-overlay {
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.modal-overlay.is-open {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+/* === Modal window === */
+.modal-window {
+    display: none;
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-window.is-visible {
+    display: block;
+}
+
+.modal-window.is-active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
 /* Subtle custom scrollbar */
 ::-webkit-scrollbar {
     width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #121212;
+    background: #0b0b0c;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #2a2a2a;
+    background: #222224;
     border-radius: 2px;
 }
 
